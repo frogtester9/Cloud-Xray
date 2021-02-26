@@ -36,7 +36,7 @@ steps:
     buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryXrayScan@1
   inputs:
-    artifactoryService: 'Kayal'
+    artifactoryService: 'kayal'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     allowFailBuild: true
