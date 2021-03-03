@@ -9,7 +9,7 @@ variables:
 steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
-    artifactoryService: 'Kayal'
+    artifactoryService: 'New-Kalya'
     cliInstallationRepo: 'jfrog-cli'
     installExtractors: true
     extractorsInstallationRepo: 'jcenter'
