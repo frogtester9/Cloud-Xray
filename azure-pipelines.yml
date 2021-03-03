@@ -1,7 +1,7 @@
 trigger:
 - master
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'Ubuntu-18.04'
 
 variables:
   imageName: 'pipelines-javascript-docker'
@@ -9,8 +9,10 @@ variables:
 steps:
 - task: ArtifactoryToolsInstaller@1
   inputs:
-    artifactoryService: 'kayal'
-    cliInstallationRepo: 'jcenter'
+    artifactoryService: 'Kayal'
+    cliInstallationRepo: 'jfrog-cli'
+    installExtractors: true
+    extractorsInstallationRepo: 'jcenter'
 - task: Docker@2
   displayName: Build an image
   inputs:
@@ -34,7 +36,7 @@ steps:
     buildNumber: $(Build.BuildNumber)
 - task: ArtifactoryXrayScan@1
   inputs:
-    artifactoryService: 'kayal'
+    artifactoryService: 'Kayal'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-    allowFailBuild: true
+    allowFailBuild: false
